@@ -84,36 +84,28 @@ function resolvedPromise(promise) {
     return result;
 }
 
-function resolvedValue(promise) {
-    var result = resolvedPromise(promise);
-    if (!result.success) {throw result.error;}
-    return result.value;
-}
 
-function resolvedError(promise) {
-    var result = resolvedPromise(promise);
-    if (result.success) {throw new Error('Promise was expected to fail but returned ' + jasmin.pp(res.value) + '.');}
-    return result.error;
-}
 
 beforeEach(function() {
-    this.addMatchers({
-        toBeResolved: function() {
-            return !!testablePromise(this.actual).$$resolved;
-        }
-    });
+    if(jasmine && jasmine.addMatchers){
+        jasmine.addMatchers({
+            toBeResolved: function() {
+                return !!testablePromise(this.actual).$$resolved;
+            }
+        });
+    }else{
+        this.addMatchers({
+            toBeResolved: function() {
+                return !!testablePromise(this.actual).$$resolved;
+            }
+        });
+    }
+
 });
 
 // Misc test utils
 
-function caught(fn) {
-    try {
-        fn();
-        return null;
-    } catch (e) {
-        return e;
-    }
-}
+
 
 // Utils for test from core angular
 var noop = angular.noop,

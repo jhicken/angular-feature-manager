@@ -1,13 +1,24 @@
 {
-  "name": "angularFeatureManager",
-  "version": "0.0.0",
+  "name": "angular-feature-manager",
+  "version": "0.0.1",
+  "main": [
+    "dist/angular-feature-manager.min.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_componants",
+    "gulp",
+    "src",
+    "test"
+  ],
   "dependencies": {
-    "modernizr": "2.6.2",
-    "angular": "1.2.x",
-    "angular-ui-router": "0.2.x",
-    "bootstrap-sass-official": "3.1.1"
+    "angular": "1.x.x",
+    "angular-ui-router": "0.2.x"
   },
   "devDependencies": {
-    "angular-mocks": "1.2.x"
+    "angular-mocks": "1.2.x",
+    "jasmine": "~2.0.0"
   }
 }

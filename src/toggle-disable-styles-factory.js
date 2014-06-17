@@ -6,7 +6,7 @@ angular.module('feature-manager').factory('toggleDisableStyles', function() {
 
         if (value) {
             element.addClass('disable-fields');
-            element.find('input,label').attr('disabled', 'disabled');
+            element.find('input','label').attr('disabled', 'disabled');
             if (select2.select2) {
                 select2.attr('disabled', 'disabled');
                 select2.select2('enable', false);
@@ -14,7 +14,7 @@ angular.module('feature-manager').factory('toggleDisableStyles', function() {
 
         } else {
             element.removeClass('disable-fields');
-            element.find('input,label').removeAttr('disabled');
+            element.find('input','label').removeAttr('disabled');
             if (select2.select2) {
                 select2.select2('enable', true);
             }
